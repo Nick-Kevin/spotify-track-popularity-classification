@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Track popularity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Track Popularity Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="year">year:</label>
+            <input type="number" name="year" required>
+            
+            <label for="track-number">Track number:</label>
+            <input type="number" name="track-number" required>
+            
+            <label for="artist-popularity">Artist popularity:</label>
+            <input type="number" name="artist-popularity" required>
+            
+            <label for="artist-followers">Artist followers:</label>
+            <input type="number" name="artist-followers" required>
+            
+            <label for="album-total-tracks">Album total tracks:</label>
+            <input type="number" name="album-total-tracks" required>
+
+            <label for="track-duration-min">Track duration (minute):</label>
+            <input type="number" step="0.1" name="track-duration-min" required>
+
+            <label for="artist-genre">Artist genre:</label>
+            <input type="text" name="artist-genre" required>
+
+            <label for="album-type">Album type:</label>
+            <select name="album-type" id="album-type" required>
+                <option value="">-- Select an album type --</option>
+                {% for option in album_types %}
+                    <option value="{{ option.value }}">
+                        {{ option.label }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label for="explicit">Explicit</label>
+            <select name="explicit">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+            <h2>Predicted Popularity: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

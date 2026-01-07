@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Album",
+    "value": "album"
+  },
+  {
+    "label": "Compilation",
+    "value": "compilation"
+  },
+  {
+    "label": "Single",
+    "value": "single"
+  }
+]
