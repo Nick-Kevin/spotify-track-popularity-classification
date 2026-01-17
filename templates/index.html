@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="./static/styles/output.css">
     <link rel="stylesheet" href="./static/styles/font.css">
 </head>
-<body class="max-w-300 mx-auto text-sm leading-relaxed">
-    <header class="flex justify-between py-10">
+<body class="text-sm leading-relaxed">
+    <header class="max-w-300 mx-auto flex justify-between py-16 max-lg:px-10">
         <p class="text-lg instrument-sans-bold">Lorem</p>
         <a href="/predict" class="bg-black hover:bg-white text-white hover:text-black border hover:border-black py-2 px-7">Prediction</a>
     </header>
-    <main>
-        <section class="grid grid-cols-2 gap-10 my-16">
-            <div class="flex flex-col justify-center gap-8">
+    <main class="max-w-300 mx-auto max-lg:px-10">
+        <section class="grid lg:grid-cols-2 gap-10 mb-16">
+            <div class="flex flex-col justify-center gap-12">
                 <p class="text-4xl">Track popularity prediction</p>
                 <p class="text-lg instrument-sans-bold">Predict the popularity of your track with Machine Learning</p>
                 <p>A classification task on track popularity using a model trained with a dataset extracted from Spotify obtained on Kaggle. Your track must belong to a popularity class (Low, Medium, High).</p>
@@ -26,6 +26,14 @@
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer class="bg-black main-text-white py-12 max-lg:px-10">
+        <div class="max-w-300 mx-auto">
+            <ul class="flex flex-col gap-2">
+                <li>Kaggle</li>
+                <li>Spotify</li>
+                <li>University of Technology, Mauritius</li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
