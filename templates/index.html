@@ -8,25 +8,27 @@
     <link rel="stylesheet" href="./static/styles/output.css">
     <link rel="stylesheet" href="./static/styles/font.css">
 </head>
-<body class="text-sm leading-relaxed">
-    <header class="max-w-300 mx-auto flex justify-between py-16 max-lg:px-10">
-        <p class="text-lg instrument-sans-bold">Lorem</p>
-        <a href="/predict" class="bg-black hover:bg-white text-white hover:text-black border hover:border-black py-2 px-7">Prediction</a>
+<body class="text-2xl lg:text-sm leading-11 lg:leading-relaxed">
+    <header class="fixed left-1/2 -translate-x-1/2 w-full py-8 max-lg:px-24 perso-bg-white">
+        <div class="max-w-300 mx-auto flex justify-between items-center">
+            <p class="lg:text-lg instrument-sans-bold">Lorem</p>
+            <a href="/predict" class="bg-black hover:bg-white text-white hover:text-black border hover:border-black py-2 px-7">Prediction</a>
+        </div>
     </header>
-    <main class="max-w-300 mx-auto max-lg:px-10">
-        <section class="grid lg:grid-cols-2 gap-10 mb-16">
-            <div class="flex flex-col justify-center gap-12">
-                <p class="text-4xl">Track popularity prediction</p>
-                <p class="text-lg instrument-sans-bold">Predict the popularity of your track with Machine Learning</p>
+    <main class="max-w-300 mx-auto max-lg:px-24">
+        <section class="grid lg:grid-cols-2 gap-10 mb-16 min-h-screen items-stretch lg:items-center pt-52 lg:pt-24">
+            <div class="flex flex-col justify-center gap-24 lg:gap-12">
+                <p class="text-7xl lg:text-4xl max-lg:leading-20">Track popularity prediction</p>
+                <p class="text-4xl lg:text-lg instrument-sans-bold max-lg:leading-14">Predict the popularity of your track with Machine Learning</p>
                 <p>A classification task on track popularity using a model trained with a dataset extracted from Spotify obtained on Kaggle. Your track must belong to a popularity class (Low, Medium, High).</p>
-                <a href="/predict" class="py-2 border border-black w-32 text-center hover:bg-black hover:text-white">Start</a>
+                <a href="/predict" class="py-2 border max-lg:border-2 border-black w-52 lg:w-32 text-center hover:bg-black hover:text-white">Start</a>
             </div>
             <div>
                 <img class="shadow-img" src="./static/images/top-view-music-concept-with-vinyl.jpg" alt="top view music concept with vinyl (from Freepik)">
             </div>
         </section>
     </main>
-    <footer class="bg-black main-text-white py-12 max-lg:px-10">
+    <footer class="bg-black main-text-white py-12 max-lg:px-24">
         <div class="max-w-300 mx-auto">
             <ul class="flex flex-col gap-2">
                 <li>Kaggle</li>

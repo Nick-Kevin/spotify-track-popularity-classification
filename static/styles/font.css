@@ -1,4 +1,8 @@
 
+:root {
+    --white: #FFFFF0
+}
+
 .instrument-sans-normal, body {
   font-family: "Instrument Sans", sans-serif;
   font-optical-sizing: auto;
@@ -18,7 +22,11 @@
 }
 
 .main-text-white {
-    color: #FFFFF0;
+    color: var(--white);
+}
+
+.perso-bg-white {
+    background-color: var(--white);
 }
 
 .shadow-img {
