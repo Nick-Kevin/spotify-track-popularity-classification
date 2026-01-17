@@ -29,6 +29,9 @@
     --text-6xl--line-height: 1;
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-3xl: 1.5rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -187,9 +190,6 @@
   .fixed {
     position: fixed;
   }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
-  }
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
@@ -211,9 +211,6 @@
   .grid {
     display: grid;
   }
-  .table {
-    display: table;
-  }
   .w-32 {
     width: calc(var(--spacing) * 32);
   }
@@ -223,19 +220,9 @@
   .max-w-300 {
     max-width: calc(var(--spacing) * 300);
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -266,6 +253,12 @@
   }
   .gap-16 {
     gap: calc(var(--spacing) * 16);
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -330,15 +323,8 @@
   .text-white {
     color: var(--color-white);
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .opacity-85 {
     opacity: 85%;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .transition-all {
     transition-property: all;
@@ -418,6 +404,18 @@
   .max-2xl\:overflow-hidden {
     @media (width < 96rem) {
       overflow: hidden;
+    }
+  }
+  .max-2xl\:rounded-t {
+    @media (width < 96rem) {
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+  }
+  .max-2xl\:rounded-b {
+    @media (width < 96rem) {
+      border-bottom-right-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
     }
   }
   .max-2xl\:px-32 {
@@ -616,6 +614,18 @@
       grid-template-columns: repeat(6, minmax(0, 1fr));
     }
   }
+  .\32 xl\:rounded-l {
+    @media (width >= 96rem) {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+  }
+  .\32 xl\:rounded-r {
+    @media (width >= 96rem) {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+  }
   .\33 xl\:my-24 {
     @media (width >= 130rem) {
       margin-block: calc(var(--spacing) * 24);
@@ -624,11 +634,6 @@
   .\33 xl\:mb-24 {
     @media (width >= 130rem) {
       margin-bottom: calc(var(--spacing) * 24);
-    }
-  }
-  .\33 xl\:w-60 {
-    @media (width >= 130rem) {
-      width: calc(var(--spacing) * 60);
     }
   }
   .\33 xl\:w-72 {
@@ -773,6 +778,7 @@ fieldset > div {
   gap: calc(var(--spacing) * 3);
 }
 fieldset > div > input, fieldset > div > select {
+  border-radius: var(--radius-sm);
   background-color: color-mix(in srgb, #000 10%, transparent);
   @supports (color: color-mix(in lab, red, red)) {
     background-color: color-mix(in oklab, var(--color-black) 10%, transparent);
@@ -821,14 +827,14 @@ fieldset > div > input:focus, fieldset > div > select:focus {
   inherits: false;
   initial-value: solid;
 }
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-outline-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
-}
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
@@ -837,8 +843,8 @@ fieldset > div > input:focus, fieldset > div > select:focus {
       --tw-translate-y: 0;
       --tw-translate-z: 0;
       --tw-border-style: solid;
-      --tw-outline-style: solid;
       --tw-leading: initial;
+      --tw-outline-style: solid;
     }
   }
 }
