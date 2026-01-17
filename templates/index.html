@@ -1,90 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Track popularity</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-        }
-        .form-container {
-            max-width: 500px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-        }
-        .form-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 20px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .form-container input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-        }
-        .form-container input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        .result {
-            font-size: 1.5em;
-            color: #4CAF50;
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Track popularity</title>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./static/styles/output.css">
+    <link rel="stylesheet" href="./static/styles/font.css">
 </head>
-<body>
-    <div class="form-container">
-        <h2>Track Popularity Prediction</h2>
-        <form action="/predict" method="post">
-            <label for="year">year:</label>
-            <input type="number" name="year" required>
-            
-            <label for="track-number">Track number:</label>
-            <input type="number" name="track-number" required>
-            
-            <label for="artist-popularity">Artist popularity:</label>
-            <input type="number" name="artist-popularity" required>
-            
-            <label for="artist-followers">Artist followers:</label>
-            <input type="number" name="artist-followers" required>
-            
-            <label for="album-total-tracks">Album total tracks:</label>
-            <input type="number" name="album-total-tracks" required>
-
-            <label for="track-duration-min">Track duration (minute):</label>
-            <input type="number" step="0.1" name="track-duration-min" required>
-
-            <label for="artist-genre">Artist genre:</label>
-            <input type="text" name="artist-genre" required>
-
-            <label for="album-type">Album type:</label>
-            <select name="album-type" id="album-type" required>
-                <option value="">-- Select an album type --</option>
-                {% for option in album_types %}
-                    <option value="{{ option.value }}">
-                        {{ option.label }}
-                    </option>
-                {% endfor %}
-            </select>
-
-            <label for="explicit">Explicit</label>
-            <select name="explicit">
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-            
-            <button type="submit">Predict</button>
-        </form>
-        {% if prediction %}
-            <h2>Predicted Popularity: {{ prediction }}</h2>
-        {% endif %}
-    </div>
+<body class="max-w-300 mx-auto text-sm leading-relaxed">
+    <header class="flex justify-between py-10">
+        <p class="text-lg instrument-sans-bold">Lorem</p>
+        <a href="/predict" class="bg-black hover:bg-white text-white hover:text-black border hover:border-black py-2 px-7">Prediction</a>
+    </header>
+    <main>
+        <section class="grid grid-cols-2 gap-10 my-16">
+            <div class="flex flex-col justify-center gap-8">
+                <p class="text-4xl">Track popularity prediction</p>
+                <p class="text-lg instrument-sans-bold">Predict the popularity of your track with Machine Learning</p>
+                <p>A classification task on track popularity using a model trained with a dataset extracted from Spotify obtained on Kaggle. Your track must belong to a popularity class (Low, Medium, High).</p>
+                <a href="/predict" class="py-2 border border-black w-32 text-center hover:bg-black hover:text-white">Start</a>
+            </div>
+            <div>
+                <img class="shadow-img" src="./static/images/top-view-music-concept-with-vinyl.jpg" alt="top view music concept with vinyl (from Freepik)">
+            </div>
+        </section>
+    </main>
+    <footer></footer>
 </body>
 </html>

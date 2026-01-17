@@ -20,8 +20,12 @@ def load_album_types():
     
 @app.route('/')
 def home():
+    return render_template('index.html')
+
+@app.route('/predict')
+def load_assets():
     album_types = load_album_types()
-    return render_template('index.html', album_types=album_types)
+    return render_template('prediction.html', album_types=album_types)
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
@@ -66,7 +70,7 @@ def predict():
         predicted_class = model.predict(data_pca)[0]
         prediction = label_mapping[predicted_class]
 
-    return render_template('index.html', prediction=prediction)
+    return render_template('prediction.html', prediction=prediction)
 
 if __name__ == "__main__":
     app.run(debug=True)
