@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-3xl: 130rem;
+}
+
 body {
-    @apply bg-[#FFFFF0];
+    @apply bg-[#FFFFF0] 3xl:text-xl 3xl:leading-10;
 }
 
 form > div > p {
