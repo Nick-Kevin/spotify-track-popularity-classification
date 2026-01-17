@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Nick-Kevin/spotify-track-popularity-classification#readme",
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "@tailwindcss/cli": "^4.1.18",
     "tailwindcss": "^4.1.18"
   }

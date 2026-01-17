@@ -8,28 +8,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/styles/output.css">
     <link rel="stylesheet" href="./static/styles/font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
 </head>
-<body class="max-w-300 mx-auto">
+<body class="max-w-300 3xl:max-w-700 mx-auto max-md:px-8 max-lg:px-20 max-xl:px-28 max-2xl:px-32">
     <main>
-        <div class="my-5">
-            <a href="/">Return</a>
+        <div class="my-5 3xl:my-24">            
+            <a href="/" class="flex items-center gap-2"><span class="mdi mdi-arrow-left-thin text-2xl 3xl:text-4xl"></span> <span>Return</span></a>
         </div>
-        <section class="grid grid-cols-6">
-            <div class="col-span-2">
-                <img src="./static/images/spotify-app.jpg" alt="Using spotify (from pixels)">
+        <section class="grid 2xl:grid-cols-6 max-md:mb-5 max-2xl:mb-16">
+            <div class="2xl:col-span-2 max-md:max-h-40 max-2xl:max-h-72 max-2xl:overflow-hidden max-2xl:flex max-2xl:justify-center max-2xl:items-center">
+                <img class="opacity-85" src="./static/images/spotify-app.jpg" alt="Using spotify (from pixels)">
             </div>
-            <div class="col-span-4 border-2 border-black py-5 px-10">
-                <h2 class="instrument-sans-bold text-2xl mb-8">Predict the track popularity</h2>
-                <form action="/predict" method="post" class="flex flex-col gap-8 text-sm">
+            <div class="2xl:col-span-4 border-2 3xl:border-4 border-black py-5 md:max-2xl:py-12 3xl:py-40 px-10 lg:px-14 xl:px-10 3xl:px-28">
+                <h2 class="instrument-sans-bold text-2xl 3xl:text-6xl mb-8 3xl:mb-24">Predict the track popularity</h2>
+                <form action="/predict" method="post" class="flex flex-col gap-8 3xl:gap-20">
                     <div>
-                        <p class="instrument-sans-bold">Artist</p>
+                        <p class="instrument-sans-bold"><span class="mdi mdi-account-music text-lg 3xl:text-2xl"></span> Artist</p>
                         <fieldset>
                             <div>
-                                <label for="artist-popularity">Artist popularity:</label>
+                                <label for="artist-popularity">Popularity score:</label>
                                 <input type="number" name="artist-popularity" required>
                             </div>
                             <div>
-                                <label for="artist-followers">Artist followers:</label>
+                                <label for="artist-followers">Followers:</label>
                                 <input type="number" name="artist-followers" required>
                             </div>
                             <div>
@@ -39,7 +40,7 @@
                         </fieldset>
                     </div>
                     <div>
-                        <p class="instrument-sans-bold">Track</p>
+                        <p class="instrument-sans-bold"><span class="mdi mdi-music text-lg 3xl:text-2xl"></span> Track</p>
                         <fieldset>
                             <div>
                                 <label for="explicit">Explicit</label>
@@ -59,7 +60,7 @@
                         </fieldset>
                     </div>
                     <div>
-                        <p class="instrument-sans-bold">Album</p>
+                        <p class="instrument-sans-bold"><span class="mdi mdi-album text-lg 3xl:text-2xl"></span>Album</p>
                         <fieldset>
                             <div>
                                 <label for="year">Release year:</label>
@@ -68,7 +69,7 @@
                             <div>
                                 <label for="album-type">Album type:</label>
                                 <select name="album-type" id="album-type" required>
-                                    <option value="">-- Select an album type --</option>
+                                    <option value="" class="text-xs text-center">-- Select an album type --</option>
                                     {% for option in album_types %}
                                         <option value="{{ option.value }}">
                                             {{ option.label }}
@@ -83,7 +84,7 @@
                         </fieldset>
                     </div>
                     <div class="flex justify-start">
-                        <button type="submit" class="bg-black text-white py-2.5 w-32 hover:bg-black/80 transition-all">
+                        <button type="submit" class="bg-black text-white py-2 xl:py-2.5 w-full lg:w-32 3xl:w-72 hover:bg-black/80 transition-all">
                             Predict
                         </button>
                     </div>
